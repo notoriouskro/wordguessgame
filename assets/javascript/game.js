@@ -1,8 +1,14 @@
 var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i" , "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-for (var i = Math.floor(Math.random()*alpha.length);
+var wins = 0;
+var losses = 0;
+var guesses = 9;
+var guessesRemain = 9;
+var lettersGuessed = [];
+var letterGuess = null;
 
-console.log(i)
+var randomLetter =
+alpha[Math.floor(Math.random()*alpha.length)]
 
-// for (var i = a; i < alpha.length; i++)
-    // if (alpha[i])
+console.log(randomLetter);
+
