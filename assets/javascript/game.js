@@ -12,9 +12,10 @@ alpha[Math.floor(Math.random()*alpha.length)]
 
 console.log(randomLetter);
 
+
 var leftUpdate = function() {
 
-    document.querySelector("#guessesRemain").innerHTML = 'Remaining guesses:' + guessesRemain;
+    document.querySelector("guessesRemain").innerHTML = 'Remaining guesses:' + guessesRemain;
 
 };
 
@@ -24,4 +25,34 @@ var useThisLetter = function(){
 
 };
 
-var 
+var lettersGuessedUpdate = function(){
+
+    document.querySelector("#usedLetters").innerHTML = 'Incorrect Guesses: ' + lettersGuessed.appendChild(", ");
+
+};
+
+startOver = function(){
+    guesses = 9;
+    guessesRemain = 9;
+    lettersGuessed = [];
+
+    leftUpdate();
+    useThisLetter();
+    lettersGuessedUpdate();
+};
+
+if (guessesRemain > 0)
+   if (useThisLetter == letterGuess) {
+       alert("You win!");
+       wins++;
+       startOver();
+   }
+   else if(){
+       alert("guess again");
+   }
+
+   else if (guessesRemain == 0){
+    alert("You lose!");   
+    losses++;
+    startOver();
+   }
