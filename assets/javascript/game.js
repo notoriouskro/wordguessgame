@@ -12,47 +12,28 @@ alpha[Math.floor(Math.random()*alpha.length)]
 
 console.log(randomLetter);
 
+document.addEventListener('keyup', function (){
+console.log('you pressed a button')
 
-var leftUpdate = function() {
+if (guessesRemain < 0){
+    console.log(guessesRemain);
+    this.appendChild(letterGuessed)
+    console.log(lettersGuessed)
+    document.getElementById('gamesWon').innerHTML = '3' ;
+} else if (event.key == randomLetter){
 
-    document.querySelector("guessesRemain").innerHTML = 'Remaining guesses:' + guessesRemain;
+wins++
+console.log(wins)
 
-};
+} else if (guessesRemain == 0) {
+  
+losses-- 
+console.log(losses)
 
-var useThisLetter = function(){
+}
 
-    this.letterGuess = this.alpha[Math.floor(Math.random()*alpha.length)]
 
-};
 
-var lettersGuessedUpdate = function(){
 
-    document.querySelector("#usedLetters").innerHTML = 'Incorrect Guesses: ' + lettersGuessed.appendChild(", ");
 
-};
-
-startOver = function(){
-    guesses = 9;
-    guessesRemain = 9;
-    lettersGuessed = [];
-
-    leftUpdate();
-    useThisLetter();
-    lettersGuessedUpdate();
-};
-
-if (guessesRemain > 0)
-   if (useThisLetter == letterGuess) {
-       alert("You win!");
-       wins++;
-       startOver();
-   }
-   else if(){
-       alert("guess again");
-   }
-
-   else if (guessesRemain == 0){
-    alert("You lose!");   
-    losses++;
-    startOver();
-   }
+});
