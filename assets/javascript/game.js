@@ -12,3 +12,16 @@ alpha[Math.floor(Math.random()*alpha.length)]
 
 console.log(randomLetter);
 
+var leftUpdate = function() {
+
+    document.querySelector("#guessesRemain").innerHTML = 'Remaining guesses:' + guessesRemain;
+
+};
+
+var useThisLetter = function(){
+
+    this.letterGuess = this.alpha[Math.floor(Math.random()*alpha.length)]
+
+};
+
+var 
