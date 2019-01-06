@@ -12,23 +12,31 @@ alpha[Math.floor(Math.random()*alpha.length)]
 
 console.log(randomLetter);
 
+document.getElementById('lettersGuessed').innerHTML = lettersGuessed;
+
 document.addEventListener('keyup', function (){
 console.log('you pressed a button')
+console.log(letterGuess);
+console.log(lettersGuessed);
 
-if (guessesRemain < 0){
+if (guessesRemain > 0){
     console.log(guessesRemain);
-    this.appendChild(letterGuessed)
-    console.log(lettersGuessed)
-    document.getElementById('gamesWon').innerHTML = '3' ;
-} else if (event.key == randomLetter){
+    guessesRemain--
+    document.getElementById('remainingGuesses').innerHTML = guessesRemain;
+    
+    
+} if (event.key == randomLetter){
 
 wins++
-console.log(wins)
+console.log(wins);
+document.getElementById('gamesWon').innerHTML = wins;
 
-} else if (guessesRemain == 0) {
+} if (guessesRemain == 0) {
   
-losses-- 
+alert('You Lose!')
+losses++
 console.log(losses)
+document.getElementById('gamesLost').innerHTML = losses;
 
 }
 
