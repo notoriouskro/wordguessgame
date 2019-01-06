@@ -6,42 +6,73 @@ var guesses = 9;
 var guessesRemain = 9;
 var lettersGuessed = [];
 var letterGuess = null;
+var randomLetter = "";
 
-var randomLetter =
-alpha[Math.floor(Math.random()*alpha.length)]
 
-console.log(randomLetter);
+function getLetter(){
 
-document.getElementById('lettersGuessed').innerHTML = lettersGuessed;
-
-document.addEventListener('keyup', function (){
-console.log('you pressed a button')
-console.log(letterGuess);
-console.log(lettersGuessed);
-
-if (guessesRemain > 0){
-    console.log(guessesRemain);
-    guessesRemain--
-    document.getElementById('remainingGuesses').innerHTML = guessesRemain;
-    
-    
-} if (event.key == randomLetter){
-
-wins++
-console.log(wins);
-document.getElementById('gamesWon').innerHTML = wins;
-
-} if (guessesRemain == 0) {
-  
-alert('You Lose!')
-losses++
-console.log(losses)
-document.getElementById('gamesLost').innerHTML = losses;
+var logLetter = alpha[Math.floor(Math.random()*alpha.length)];
+console.log(logLetter);
+return logLetter;
 
 }
 
 
 
 
+document.getElementById('lettersGuessed').innerHTML = lettersGuessed;
 
+document.addEventListener('keyup', function (event){
+console.log('you pressed a button')
+
+// if {
+
+
+
+// }
+if (guessesRemain > 0){
+    
+    guessesRemain--;
+    document.getElementById('remainingGuesses').innerHTML = guessesRemain;
+    console.log(guessesRemain);
+    
+    
+    var ltrcse = event.key;
+    ltrcse = ltrcse.toLowerCase(ltrcse);
+    
+    lettersGuessed.push(ltrcse);
+
+    document.getElementById('lettersGuessed').innerText = lettersGuessed;
+    
+    
+    
+} if (event.key === randomLetter){
+
+wins++;
+console.log(wins);
+document.getElementById('gamesWon').innerHTML = wins;
+startOver();
+
+} if (guessesRemain === 0) {
+  
+alert('You Lose! Click start to play again.')
+losses++;
+console.log(losses);
+document.getElementById('gamesLost').innerHTML = losses;
+startOver();
+
+}
 });
+
+document.getElementById("btn").onclick = function() {startOver()};
+
+function startOver(){
+    guesses = 9;
+    guessesRemain = 9;
+    lettersGuessed = [];
+    document.getElementById('remainingGuesses').innerHTML = guessesRemain;
+    document.getElementById('lettersGuessed').innerText = "";
+    randomLetter = getLetter();
+    
+
+};
