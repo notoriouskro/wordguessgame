@@ -55,7 +55,7 @@ startOver();
 
 } if (guessesRemain === 0) {
   
-alert('You Lose! Click start to play again.')
+alert('You Lose! Click ok to play again.')
 losses++;
 console.log(losses);
 document.getElementById('gamesLost').innerHTML = losses;
