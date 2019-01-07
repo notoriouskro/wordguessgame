@@ -73,6 +73,6 @@ function startOver(){
     document.getElementById('remainingGuesses').innerHTML = guessesRemain;
     document.getElementById('lettersGuessed').innerText = "";
     randomLetter = getLetter();
-    
+    keybaord = prompt();
 
 };
